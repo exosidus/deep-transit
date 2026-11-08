@@ -1,0 +1,35 @@
+paths:
+  raw: data/raw
+  processed: data/processed
+  metadata: data/metadata
+  figures: data/figures
+  checkpoints: models/checkpoints
+  metrics: data/metrics
+
+archive:
+  koi_table: q1_q17_dr25_koi
+  cache_name: koi_q1_q17_dr25.csv
+  timeout_seconds: 60
+
+preprocessing:
+  flux_column: pdcsap_flux
+  normalization: median_relative
+  quality_bitmask: hard
+  detrending_window_transit_durations: 3.0
+  transit_mask_duration_multiplier: 1.2
+  phase_bins: 1000
+  minimum_valid_bins: 50
+
+dataset:
+  random_seed: 42
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+
+training:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  dropout: 0.4
+  patience: 8
